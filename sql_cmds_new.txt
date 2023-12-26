@@ -1,0 +1,195 @@
+CREATE DATABASE priyanshu;
+USE priyanshu;
+CREATE TABLE student (
+rollno INT PRIMARY KEY,
+name VARCHAR(50),
+marks INT NOT NULL,
+grade VARCHAR(1),
+city VARCHAR(20)
+); 
+
+INSERT INTO student
+(rollno, name, marks, grade, city)
+VALUES
+(101, "anil", 78, "C", "Pune"),
+(102, "bhumika", 93, "A", "Mumbai"),
+(103, "chetan", 85, "B", "Mumbai"),
+(104, "dhruv", 96, "A", "Delhi"),
+(105, "emanuel", 12, "F", "Delhi"),
+(106, "farah", 82, "B", "Delhi");
+
+ SELECT name, marks FROM student;
+ SELECT * FROM student;
+ SELECT DISTINCT city FROM student;
+ SELECT *
+ FROM student
+ WHERE marks > 80 AND city = "Mumbai";
+ 
+ SELECT * FROM student
+ WHERE marks > 90 OR city = "Mumbai";
+ 
+ SELECT * FROM student
+ WHERE marks BETWEEN 80 AND 90;
+ 
+  SELECT * FROM student
+  WHERE city IN ( "Delhi", "Mumbai");
+  
+  SELECT * FROM student
+  WHERE city NOT IN ("Delhi", "Mumbai");
+  
+    SELECT * FROM student
+    LIMIT 3;
+    
+      SELECT * FROM student
+      ORDER BY city ASC;
+      
+        SELECT * FROM student
+        ORDER BY marks ASC;
+
+      SELECT * FROM student
+      ORDER BY marks DESC
+      LIMIT 3;
+
+      SELECT AVG(marks) FROM student;
+            
+	 SELECT MAX(marks) FROM student;
+  SELECT COUNT(rollno) FROM student;
+  
+   SELECT city FROM student
+   GROUP BY city;
+   
+   
+     SELECT city, COUNT(rollno) FROM student
+   GROUP BY city;
+   
+        SELECT city, name, COUNT(rollno) FROM student
+   GROUP BY city, name;
+   
+        SELECT city, AVG(marks) FROM student
+   GROUP BY city;
+   
+           SELECT city, AVG(marks) FROM student
+   GROUP BY city
+   ORDER BY city;
+   
+           SELECT city, AVG(marks) FROM student
+   GROUP BY city
+   ORDER BY AVG(marks);
+   
+            SELECT city, AVG(marks) FROM student
+   GROUP BY city
+   ORDER BY AVG(marks) DESC ;
+   
+ 
+   
+ SELECT city COUNT (rollno)
+ FROM student
+ GROUP BY city
+ HAVING MAX(marks)> 90;
+  
+SELECT city FROM student
+WHERE grade = "A"
+GROUP BY city;
+HAVING max(marks) > 90; 
+ORDER BY city DESC;
+
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE student
+SET grade = "O"
+WHERE grade = "A";
+
+  
+
+UPDATE student
+SET marks =82
+WHERE rollno = 105;
+
+UPDATE student
+SET grade = "B"
+WHERE marks BETWEEN 80 AND 90;
+
+UPDATE student
+SET marks = marks + 1;
+
+SELECT * FROM student;
+
+UPDATE student
+SET marks = 12
+WHERE rollno = 105;
+
+DELETE FROM student
+WHERE marks < 33;
+
+  CREATE DATABASE customer;
+   USE customer;
+   
+   CREATE TABLE payments(
+   id INT PRIMARY KEY,
+   cust VARCHAR(50),
+   mode VARCHAR(50),
+   city VARCHAR(50)
+   );
+   
+   INSERT INTO payments
+   (id, cust, mode, city)
+   VALUES
+   (101, "Olivia Barrett", "Netbanking", "Portland"),
+   (102, "Ethan Sinclair", "Credit Card", "Miami"),
+   (103, "Maya Harnandez", "Credit Card", "Seattle"),
+   (104, "Liam Donovan", "Netbanking", "Denver"),
+   (105, "Sophia Nguyen", "Credit Card", "New Orleans"),
+   (106, "Caleb Foster", "Debit Card", "Minneapolis"),
+   (107, "Ava Patel", "Debit Card", "Phoenix"),
+   (108, "Lucas carter", "Netbanking", "Boston"),
+   (109, "Isabella Martinez", "Netbanking", "Nashville"),
+   (110, "Jackson Brooks", "Credit Card", "Boston");
+   
+   
+   SELECT mode, COUNT(cust) FROM payments
+   GROUP BY mode;
+   
+   SELECT mode, 
+   FROM payments
+   GROUP BY mode;
+   
+   CREATE TABLE dept (
+   id INT PRIMARY KEY,
+   name VARCHAR(50)
+   );
+   
+   
+   INSERT INTO dept
+   VALUES
+   (101, "english"),
+   (102, "IT");
+  
+  
+  UPDATE dept
+  SET id = 103
+  WHERE id = 102;
+  
+  CREATE TABLE teacher (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    dept_id INT,
+    FOREIGN KEY (dept_id) REFERENCES dept(id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+  );
+     
+     SELECT * FROM dept;
+     
+     INSERT INTO teacher
+     VALUES
+     (101, "Adam", 101),
+     (102, "Eve", 102);
+     
+     SELECT * FROM teacher;
+     
+      DROP TABLE teacher;
+     
+     
+   
+   
+   
