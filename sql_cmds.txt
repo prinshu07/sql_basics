@@ -1,0 +1,290 @@
+-- CREATE DATABASE college;
+
+-- USE college;
+
+-- CREATE TABLE student(
+-- rollno INT PRIMARY KEY,
+-- name VARCHAR (50)
+-- );
+
+-- SELECT * FROM student;
+
+-- INSERT INTO student
+-- (rollno, name)
+-- VALUES
+-- (101, "karan"),
+-- (102, "arjun"),
+-- (103, "ram");
+-- INSERT INTO student VALUES (104, "shyam");
+
+
+-- CREATE DATABASE maheshwari;
+-- USE maheshwari;
+-- CREATE TABLE school(
+-- id INT PRIMARY KEY,
+-- name VARCHAR (50),
+-- salary INT
+-- );
+-- SELECT * FROM school;
+-- INSERT INTO school
+-- (id, name, salary)
+-- VALUES
+-- (1, "adam", 25000),
+-- (2, "bob", 30000),
+-- (3, "casey", 40000);
+
+
+-- CREATE DATABASE team;
+-- USE team;
+-- CREATE TABLE learner (
+-- rollno INT PRIMARY KEY,
+-- name VARCHAR(50),
+-- marks INT NOT NULL,
+-- grade VARCHAR(1),
+-- city VARCHAR(20)
+-- ); 
+
+-- INSERT INTO learner
+-- (rollno, name, marks, grade, city)
+-- VALUES
+-- (101, "anil", 78, "C", "Pune"),
+-- (102, "bhumika", 93, "A", "Mumbai"),
+-- (103, "chetan", 85, "B", "Mumbai"),
+-- (104, "dhruv", 96, "A", "Delhi"),
+-- (105, "emanuel", 12, "F", "Delhi"),
+-- (106, "farah", 82, "B", "Delhi");
+
+-- SELECT * FROM learner;
+
+-- ALTER TABLE learner
+-- ADD COLUMN age INT;
+
+-- ALTER TABLE learner
+-- ADD COLUMN age INT;
+
+-- ALTER TABLE learner
+-- ADD COLUMN age INT NOT NULL DEFAULT 19;
+
+-- ALTER TABLE learner
+-- MODIFY COLUMN age VARCHAR(2);
+
+-- INSERT INTO learner
+-- (rollno, name, marks, stu_age)
+-- VALUES
+-- (107, "gargi", 68, 100);
+
+
+-- ALTER TABLE learner
+-- CHANGE age stu_age INT;
+
+-- ALTER TABLE learner
+-- DROP COLUMN stu_age;
+
+-- ALTER TABLE learner
+-- RENAME TO learners;
+
+-- ALTER TABLE learners
+-- RENAME TO learner;
+
+-- TRUNCATE TABLE learner;
+
+-- SELECT * FROM learner;
+
+-- ALTER TABLE learner
+-- CHANGE name full_name VARCHAR(50); 
+
+-- DELETE FROM learner
+-- WHERE marks < 80;
+
+-- ALTER TABLE learner
+-- DROP COLUMN grade;
+
+-- CREATE DATABASE classmate;
+-- USE classmate;
+
+-- CREATE TABLE student(
+--   id INT PRIMARY KEY,
+--   name VARCHAR(50)
+--   );
+-- --   
+--   INSERT INTO student (id, name)
+--   VALUES
+--   (101, "adam"),
+--   (102, "bob"),
+--   (103, "casey");
+--   
+--   CREATE TABLE course(
+--     id INT PRIMARY KEY,
+--     course VARCHAR(50)
+--     );
+  
+--   INSERT INTO course (id, course)
+--   VALUES
+--   (102, "english"),
+--   (105, "math"),
+--   (103, "science"),
+--   (107, "computer science");
+  
+  
+ --  SELECT * FROM student;
+--   SELECT * FROM course;
+
+--  SELECT * 
+--  FROM student
+--  INNER JOIN course
+--  ON student.id = course.id; 
+
+--  SELECT * 
+--  FROM student as a
+--  INNER JOIN course as b
+--  ON a.id = b.id; 
+
+--  SELECT * 
+--  FROM student as a
+--  LEFT JOIN course as b
+--  ON a.id = b.id;
+
+--  SELECT * 
+--  FROM student as a
+--  RIGHT JOIN course as b
+--  ON a.id = b.id;
+ 
+ 
+--  SELECT * 
+--  FROM student as a
+--  LEFT JOIN course as b
+--  ON a.id = b.id
+--  UNION
+--  SELECT * 
+--  FROM student as a
+--  RIGHT JOIN course as b
+--  ON a.id = b.id;  
+
+
+--   SELECT * 
+--  FROM student as a
+--  LEFT JOIN course as b
+--  ON a.id = b.id
+--  WHERE b.id IS NULL;
+
+--  SELECT * 
+--  FROM student as a
+--  RIGHT JOIN course as b
+--  ON a.id = b.id
+--  WHERE a.id IS NULL;
+
+--  SELECT * 
+--  FROM student as a
+--  LEFT JOIN course as b
+--  ON a.id = b.id
+--  WHERE b.id IS NOT NULL
+--  UNION
+--  SELECT * 
+--  FROM student as a
+--  RIGHT JOIN course as b
+--  ON a.id = b.id
+--  WHERE a.id IS NOT NULL;
+
+-- CREATE TABLE employee(
+-- id INT PRIMARY KEY,
+-- name VARCHAR(50),
+-- manager_id INT);
+
+-- INSERT INTO employee (id, name, manager_id)
+-- VALUES
+-- (101, "adam", 103),
+-- (102, "bob", 104),
+-- (103, "casey", NULL),
+-- (104, "donald", 103);
+
+-- SELECT * FROM employee;
+
+--  SELECT a.name as manager_name, b.name
+--  FROM employee as a
+--  JOIN employee as b
+--  ON a.id= b.manager_id;
+
+-- SELECT name FROM employee
+-- UNION
+-- SELECT name FROM employee;
+
+-- SELECT name FROM employee
+-- UNION ALL
+-- SELECT name FROM employee;
+
+
+-- DROP DATABASE team;
+
+-- CREATE DATABASE team;
+-- USE team;
+-- CREATE TABLE learner (
+-- rollno INT PRIMARY KEY,
+-- name VARCHAR(50),
+-- marks INT NOT NULL,
+-- grade VARCHAR(1),
+-- city VARCHAR(20)
+-- ); 
+
+-- INSERT INTO learner
+-- (rollno, name, marks, grade, city)
+-- VALUES
+-- (101, "anil", 78, "C", "Pune"),
+-- (102, "bhumika", 93, "A", "Mumbai"),
+-- (103, "chetan", 85, "B", "Mumbai"),
+-- (104, "dhruv", 96, "A", "Delhi"),
+-- (105, "emanuel", 12, "F", "Delhi"),
+-- (106, "farah", 82, "B", "Delhi");
+
+-- SELECT * FROM learner;
+
+-- SELECT AVG (marks)
+-- FROM learner;
+
+-- SELECT name 
+-- FROM learner
+-- WHERE marks > 77.3333;
+
+-- SELECT name, marks
+-- FROM learner
+-- WHERE marks > 77.3333;
+
+-- SELECT name, marks
+-- FROM learner
+-- WHERE marks > (SELECT AVG(marks) FROM learner);
+ 
+-- SELECT rollno
+-- FROM learner
+-- WHERE rollno % 2= 0;
+--  
+--  SELECT name, rollno
+--  FROM learner
+--  WHERE rollno IN (
+--      SELECT rollno
+--      FROM learner
+--      WHERE rollno % 2= 0)
+
+-- SELECT*
+-- FROM learner
+-- WHERE city = "Delhi";
+
+
+-- SELECT MAX(marks)
+-- FROM
+-- (SELECT*
+-- FROM learner
+-- WHERE city = "Delhi") AS temp;
+
+--  SELECT MAX(marks)
+--  FROM learner
+--  WHERE city = "Mumbai";
+
+--  CREATE VIEW view1 AS
+--  SELECT rollno, name, marks
+--  FROM learner;
+ 
+--  SELECT * FROM view1;
+
+--  SELECT * FROM view1
+--  WHERE marks > 90 ;
+
+ 
